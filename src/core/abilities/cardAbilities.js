@@ -1,9 +1,9 @@
-import { applyCarta1 } from './Carta1Ability';
-import { applyCarta2 } from './Carta2Ability';
-import { applyCarta3 } from './Carta3Ability';
-import { applyCarta7 } from './Carta7Ability';
-import { applyCarta8 } from './Carta8Ability';
-import { applyCarta9 } from './Carta9Ability';
+import { applyCarta1 } from './Carta1Ability.js';
+import { applyCarta2 } from './Carta2Ability.js';
+import { applyCarta3 } from './Carta3Ability.js';
+import { applyCarta7 } from './Carta7Ability.js';
+import { applyCarta8 } from './Carta8Ability.js';
+import { applyCarta9 } from './Carta9Ability.js';
 
 export const SPECIAL_ABILITY_VALUES = [1, 2, 3, 7, 8, 9];
 
