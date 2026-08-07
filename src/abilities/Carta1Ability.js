@@ -1,14 +1,20 @@
 export function applyCarta1(state, player, card, options) {
   const { targetCardId, targetPlayerId } = options;
 
-  // Caso A: Usar el 1 para deshacerse del 8 (solo 1 vez)
+  // Caso A: Usar el 1 para deshacerse del 8 (solo 1 vez por la bandera transferido_por_1)
   const curseCard = player.hand.find(c => c.value === 8);
   if (curseCard && targetPlayerId) {
+    if (curseCard.transferido_por_1) {
+      state.log.push(`${player.name} intentó transferir el 8, pero esta carta ya fue transferida por un 1 anteriormente.`);
+      return;
+    }
+
     const targetPlayer = state.players.find(p => p.id === targetPlayerId);
     if (targetPlayer) {
+      curseCard.transferido_por_1 = true; // Seteamos la bandera requerida por el reglamento
       player.hand = player.hand.filter(c => c.id !== curseCard.id);
       targetPlayer.hand.push(curseCard);
-      state.log.push(`${player.name} usó un 1 para pasar la maldición del 8 a ${targetPlayer.name}.`);
+      state.log.push(`${player.name} usó un 1 para pasar la maldición del 8 a ${targetPlayer.name} (única vez permitida).`);
       return;
     }
   }
