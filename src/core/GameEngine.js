@@ -1,5 +1,5 @@
-import { createDeck } from './Deck.js';
-import { executeCardAbility } from './abilities/cardAbilities.js';
+import { createDeck } from '../models/Deck.js';
+import { executeCardAbility } from '../abilities/cardAbilities.js';
 
 export const ACTIONS = {
   START_GAME: 'START_GAME',

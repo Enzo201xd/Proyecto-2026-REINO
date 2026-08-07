@@ -4,6 +4,7 @@ export function createDeck() {
   let deck = [];
   let idCounter = 1;
 
+  // Solo fabricamos las 48 cartas reglamentarias
   for (const suit of suits) {
     for (const value of values) {
       deck.push({
@@ -16,10 +17,6 @@ export function createDeck() {
       });
     }
   }
-
-  // (Opcional) Agregar 2 comodines si juegas con ellos
-  deck.push({ id: `c_${idCounter++}_comodin_1`, suit: 'comodin', value: 0, isProtected: false, shields: 0, faceUp: false });
-  deck.push({ id: `c_${idCounter++}_comodin_2`, suit: 'comodin', value: 0, isProtected: false, shields: 0, faceUp: false });
 
   return shuffleDeck(deck);
 }
